@@ -4,11 +4,12 @@ import Tkinter as tk
 import ttk
 from PIL import Image, ImageTk
 import pyfits as fits
-from os.path import basename, getmtime, isfile
+from os.path import basename, getmtime, isfile, splitext
 from time import sleep, strftime, localtime
 import tkFileDialog
 import tkMessageBox
 from STCore.item.File import FileItem
+from STCore.utils.green import green
 import STCore.ImageView
 import STCore.DataManager
 import numpy
