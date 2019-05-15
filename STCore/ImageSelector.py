@@ -45,7 +45,11 @@ def SetFileItems(path, ListSize, PathSize, progress, loadWindow,  root):
 	global loadIndex
 	item = FileItem()
 	item.path = str(path)
-	item.data, header = fits.getdata(item.path, header = True)
+	extension=splitext(str(path))[1][1:].strip()
+	if extension == "fit" or extension=="fits":
+		item.data, header = fits.getdata(item.path, header = True)
+	else:
+		item.data=green(item.path)
 	item.date = getmtime(item.path)
 	#print strftime('%H/%M/%S', localtime(item.date))
 	#item.timee = header['NOTE'].split()[3]
